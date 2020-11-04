@@ -4,6 +4,8 @@ namespace ServerlessPersistence.Models
 {
     public class PlayerEntity : TableEntity
     {
+        public PlayerEntity()
+        {}
         public PlayerEntity(
             string region,
             string id,

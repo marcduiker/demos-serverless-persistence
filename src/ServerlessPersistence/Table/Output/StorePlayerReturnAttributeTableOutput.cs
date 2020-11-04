@@ -9,7 +9,7 @@ namespace ServerlessPersistence.Table.Output
     public static class StorePlayerReturnAttributeTableOutput
     {
         [FunctionName(nameof(StorePlayerReturnAttributeTableOutput))]
-        [return: Table("players")] 
+        [return: Table("players")]
         public static async Task<PlayerEntity> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage message)
         {

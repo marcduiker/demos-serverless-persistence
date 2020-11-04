@@ -1,0 +1,10 @@
+# Table Input requests
+@baseUrl = http://localhost:7071/api
+@region = United States of America
+@id = 430eb6a4-ac27-4a5c-8dcf-cf4ef226bc0a
+
+### Get a single player by Id
+GET {{baseUrl}}/GetPlayerByRegionAndIdTableInput/{{region}}/{{id}}
+
+### Get multiple players by region
+GET {{baseUrl}}/GetPlayersByRegionCloudTableInput?region={{region}}

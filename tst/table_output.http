@@ -1,3 +1,4 @@
+# Table output requests
 @baseUrl = http://localhost:7071/api
 
 POST {{baseUrl}}/StorePlayerReturnAttributeTableOutput
