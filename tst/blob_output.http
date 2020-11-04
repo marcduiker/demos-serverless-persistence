@@ -2,7 +2,7 @@
 
 @baseUrl = http://localhost:7071/api
 ### String
-POST {{baseUrl}}/RegisterPlayerWithStringOutput
+POST {{baseUrl}}/StorePlayerWithStringBlobOutput
 Content-Type: application/json
 
 {
@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### Stream
-POST {{baseUrl}}/RegisterPlayerWithStreamOutput
+POST {{baseUrl}}/StorePlayerWithStreamBlobOutput
 Content-Type: application/json
 
 {
@@ -22,7 +22,7 @@ Content-Type: application/json
 }
 
 ### Dynamic Binding
-POST {{baseUrl}}/RegisterPlayerWithStringOutputDynamic
+POST {{baseUrl}}/StorePlayerWithStringBlobOutputDynamic
 Content-Type: application/json
 
 {
@@ -32,7 +32,7 @@ Content-Type: application/json
 }
 
 ### CloudBlockBlob
-POST {{baseUrl}}/RegisterPlayerWithBlobContainerOutput
+POST {{baseUrl}}/StorePlayerWithContainerBlobOutput
 Content-Type: application/json
 
 {

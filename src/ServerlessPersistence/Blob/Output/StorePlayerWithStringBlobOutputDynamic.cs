@@ -4,21 +4,20 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Newtonsoft.Json;
 using System.Net.Http;
-using Microsoft.Azure.Storage.Blob;
 using System.Threading.Tasks;
 using ServerlessPersistence.Models;
 
 namespace ServerlessPersistence.Blob.Output
 {
-    public static class RegisterPlayerWithBlobContainerOutput
+    public static class StorePlayerWithStringBlobOutputDynamic
     {
-        [FunctionName(nameof(RegisterPlayerWithBlobContainerOutput))]
+        [FunctionName(nameof(StorePlayerWithStringBlobOutputDynamic))]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage message,
-            [Blob("players", FileAccess.Read)] CloudBlobContainer cloudBlobContainer
+            IBinder binder
         )
         {
-            var player = message.Content.ReadAsAsync<Player>().GetAwaiter().GetResult();
+            var player = await message.Content.ReadAsAsync<Player>();
 
             IActionResult result;
             if (player == null)
@@ -30,9 +29,11 @@ namespace ServerlessPersistence.Blob.Output
                 result = new AcceptedResult();
             }
 
-            var blob = cloudBlobContainer.GetBlockBlobReference($"out/cloudblob-{player.NickName}.json");
-            var playerBlob = JsonConvert.SerializeObject(player);
-            await blob.UploadTextAsync(playerBlob);
+            var blobAttribute = new BlobAttribute($"players/out/dynamic-{player.Id}.json");
+            using (var output = await binder.BindAsync<TextWriter>(blobAttribute))
+            {
+                await output.WriteAsync(JsonConvert.SerializeObject(player));
+            }
 
             return result;
         }

@@ -8,9 +8,9 @@ using ServerlessPersistence.Models;
 
 namespace ServerlessPersistence.Blob.Output
 {
-    public static class RegisterPlayerWithStringOutput
+    public static class StorePlayerWithStringBlobOutput
     {
-        [FunctionName(nameof(RegisterPlayerWithStringOutput))]
+        [FunctionName(nameof(StorePlayerWithStringBlobOutput))]
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage message,
             [Blob("players/out/string-{rand-guid}.json", FileAccess.Write)] out string playerBlob

@@ -9,9 +9,9 @@ using ServerlessPersistence.Models;
 
 namespace ServerlessPersistence.Blob.Output
 {
-    public static class RegisterPlayerWithStreamOutput
+    public static class StorePlayerWithStreamBlobOutput
     {
-        [FunctionName(nameof(RegisterPlayerWithStreamOutput))]
+        [FunctionName(nameof(StorePlayerWithStreamBlobOutput))]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage message,
             [Blob("players/out/stream-{rand-guid}.json", FileAccess.Write)] Stream playerStream

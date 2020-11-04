@@ -8,9 +8,9 @@ using System.Net.Mime;
 
 namespace ServerlessPersistence.Blob.Output
 {
-    public static class GetPlayerWithStringInputDynamic
+    public static class GetPlayerWithStringBlobInputDynamic
     {
-        [FunctionName(nameof(GetPlayerWithStringInputDynamic))]
+        [FunctionName(nameof(GetPlayerWithStringBlobInputDynamic))]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest request,
             IBinder binder

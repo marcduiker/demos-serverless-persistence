@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace ServerlessPersistence.Blob.Output
 {
-    public static class GetBlobNamesWithBlobContainerInput
+    public static class GetBlobNamesWithContainerBlobInput
     {
-        [FunctionName(nameof(GetBlobNamesWithBlobContainerInput))]
+        [FunctionName(nameof(GetBlobNamesWithContainerBlobInput))]
         public static IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest request,
             [Blob("players", FileAccess.Read)] CloudBlobContainer cloudBlobContainer

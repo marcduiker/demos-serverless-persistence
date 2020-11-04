@@ -8,9 +8,9 @@ using System.Net.Mime;
 
 namespace ServerlessPersistence.Blob.Input
 {
-    public static class GetPlayerWithStreamInput
+    public static class GetPlayerWithStreamBlobInput
     {
-        [FunctionName(nameof(GetPlayerWithStreamInput))]
+        [FunctionName(nameof(GetPlayerWithStreamBlobInput))]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetPlayerWithStreamInput/{id}")] HttpRequest request,
             string id,
