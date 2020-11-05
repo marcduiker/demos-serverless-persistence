@@ -12,9 +12,14 @@ namespace ServerlessPersistence.Blob.Input
     {
         [FunctionName(nameof(GetPlayerWithStreamBlobInput))]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetPlayerWithStreamInput/{id}")] HttpRequest request,
+            [HttpTrigger(
+                AuthorizationLevel.Function,
+                nameof(HttpMethods.Get),
+                Route = "GetPlayerWithStreamInput/{id}")] HttpRequest request,
             string id,
-            [Blob("players/in/player-{id}.json", FileAccess.Read)] Stream playerStream
+            [Blob(
+                "players/in/player-{id}.json",
+                FileAccess.Read)] Stream playerStream
         )
         {
             IActionResult result;

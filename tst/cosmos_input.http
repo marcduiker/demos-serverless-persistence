@@ -1,0 +1,10 @@
+# Table Input requests
+@baseUrl = http://localhost:7071/api
+@region = United States of America
+@id = fd399e43-731a-4cdd-9cca-254f770e469b
+
+### Get a single player by Id
+GET {{baseUrl}}/GetPlayerByRegionAndIdCosmosInput/{{region}}/{{id}}
+
+### Get multiple players by region
+GET {{baseUrl}}/GetPlayersByRegionDocumentClientCosmosInput?region={{region}}

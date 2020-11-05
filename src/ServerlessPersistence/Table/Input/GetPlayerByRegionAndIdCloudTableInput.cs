@@ -3,7 +3,6 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using ServerlessPersistence.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Azure.Cosmos.Table;
 
 namespace ServerlessPersistence.Table.Input
 {
@@ -11,10 +10,16 @@ namespace ServerlessPersistence.Table.Input
     {
         [FunctionName(nameof(GetPlayerByRegionAndIdTableInput))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetPlayerByRegionAndIdTableInput/{region}/{id}")] HttpRequest request,
+            [HttpTrigger(
+                AuthorizationLevel.Function,
+                nameof(HttpMethods.Get),
+                Route = "GetPlayerByRegionAndIdTableInput/{region}/{id}")] HttpRequest request,
             string region,
             string id,
-            [Table("players", "{region}", "{id}")]PlayerEntity playerEntity)
+            [Table(
+                TableConfig.Table,
+                "{region}",
+                "{id}")] PlayerEntity playerEntity)
         {
             return new OkObjectResult(playerEntity);
         }

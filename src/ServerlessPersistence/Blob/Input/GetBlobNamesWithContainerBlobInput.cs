@@ -12,8 +12,13 @@ namespace ServerlessPersistence.Blob.Output
     {
         [FunctionName(nameof(GetBlobNamesWithContainerBlobInput))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest request,
-            [Blob("players", FileAccess.Read)] CloudBlobContainer cloudBlobContainer
+            [HttpTrigger(
+                AuthorizationLevel.Function, 
+                nameof(HttpMethods.Get),
+                Route = null)] HttpRequest request,
+            [Blob(
+                "players",
+                FileAccess.Read)] CloudBlobContainer cloudBlobContainer
         )
         {
             var blobList = cloudBlobContainer

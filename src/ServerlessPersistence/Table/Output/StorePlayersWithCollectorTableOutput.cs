@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using ServerlessPersistence.Models;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace ServerlessPersistence.Table.Output
 {
@@ -12,8 +13,11 @@ namespace ServerlessPersistence.Table.Output
     {
         [FunctionName(nameof(StorePlayersWithCollectorTableOutput))] 
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage message,
-            [Table("players")] IAsyncCollector<PlayerEntity> collector)
+            [HttpTrigger(
+                AuthorizationLevel.Function,
+                nameof(HttpMethods.Post),
+                Route = null)] HttpRequestMessage message,
+            [Table(TableConfig.Table)] IAsyncCollector<PlayerEntity> collector)
         {
             var playerEntities = await message.Content.ReadAsAsync<IEnumerable<PlayerEntity>>();
 

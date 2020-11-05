@@ -11,8 +11,11 @@ namespace ServerlessPersistence.Table.Input
     {
         [FunctionName(nameof(GetPlayersByRegionCloudTableInput))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest request,
-            [Table("players")]CloudTable cloudTable)
+            [HttpTrigger(
+                AuthorizationLevel.Function,
+                nameof(HttpMethods.Get),
+                Route = null)] HttpRequest request,
+            [Table(TableConfig.Table)] CloudTable cloudTable)
         {
             string region = request.Query["region"];
             var regionFilter = new TableQuery<PlayerEntity>()
