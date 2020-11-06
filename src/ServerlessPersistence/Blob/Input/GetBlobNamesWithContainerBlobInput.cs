@@ -17,7 +17,7 @@ namespace ServerlessPersistence.Blob.Output
                 nameof(HttpMethods.Get),
                 Route = null)] HttpRequest request,
             [Blob(
-                "players",
+                BlobConfig.Container,
                 FileAccess.Read)] CloudBlobContainer cloudBlobContainer
         )
         {

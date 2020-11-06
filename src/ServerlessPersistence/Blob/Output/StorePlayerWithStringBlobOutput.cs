@@ -5,6 +5,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Newtonsoft.Json;
 using System.Net.Http;
 using ServerlessPersistence.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ServerlessPersistence.Blob.Output
 {
@@ -12,8 +13,13 @@ namespace ServerlessPersistence.Blob.Output
     {
         [FunctionName(nameof(StorePlayerWithStringBlobOutput))]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage message,
-            [Blob("players/out/string-{rand-guid}.json", FileAccess.Write)] out string playerBlob
+            [HttpTrigger(
+                AuthorizationLevel.Function,
+                nameof(HttpMethods.Post),
+                Route = null)] HttpRequestMessage message,
+            [Blob(
+                "players/out/string-{rand-guid}.json",
+                FileAccess.Write)] out string playerBlob
         )
         {
             var player = message.Content.ReadAsAsync<Player>().GetAwaiter().GetResult();

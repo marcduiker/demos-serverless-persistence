@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 using ServerlessPersistence.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ServerlessPersistence.Blob.Output
 {
@@ -13,7 +14,10 @@ namespace ServerlessPersistence.Blob.Output
     {
         [FunctionName(nameof(StorePlayerWithStringBlobOutputDynamic))]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage message,
+            [HttpTrigger(
+                AuthorizationLevel.Function,
+                nameof(HttpMethods.Post),
+                Route = null)] HttpRequestMessage message,
             IBinder binder
         )
         {

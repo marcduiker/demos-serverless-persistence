@@ -7,8 +7,9 @@ Content-Type: application/json
 
 {
     "id": "{{$guid}}",
-    "nickName" : "Marc",
-    "email" : "mduiker@xpirit.com"
+    "nickName" : "Ada",
+    "email" : "ada@lovelace.org",
+    "region" : "United Kingdom"
 }
 
 ### Stream
@@ -17,8 +18,9 @@ Content-Type: application/json
 
 {
     "id": "{{$guid}}",
-    "nickName" : "Marc",
-    "email" : "mduiker@xpirit.com"
+    "nickName" : "Grace",
+    "email" : "grace@hopper.org",
+    "region" : "United States of America"
 }
 
 ### Dynamic Binding
@@ -27,8 +29,9 @@ Content-Type: application/json
 
 {
     "id": "{{$guid}}",
-    "nickName" : "Marc",
-    "email" : "mduiker@xpirit.com"
+    "nickName" : "Margaret",
+    "email" : "margaret@hamilton.org",
+    "region" : "United States of America"
 }
 
 ### CloudBlockBlob
@@ -37,6 +40,7 @@ Content-Type: application/json
 
 {
     "id": "{{$guid}}",
-    "nickName" : "Marc",
-    "email" : "mduiker@xpirit.com"
+    "nickName" : "Margaret",
+    "email" : "margaret@hamilton.org",
+    "region" : "United States of America"
 }

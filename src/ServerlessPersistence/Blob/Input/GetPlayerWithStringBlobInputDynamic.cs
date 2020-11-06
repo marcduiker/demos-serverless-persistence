@@ -12,7 +12,10 @@ namespace ServerlessPersistence.Blob.Output
     {
         [FunctionName(nameof(GetPlayerWithStringBlobInputDynamic))]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest request,
+            [HttpTrigger(
+                AuthorizationLevel.Function, 
+                nameof(HttpMethods.Get),
+                Route = null)] HttpRequest request,
             IBinder binder
         )
         {

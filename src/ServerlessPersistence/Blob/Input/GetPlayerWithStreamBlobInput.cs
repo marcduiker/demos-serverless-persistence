@@ -15,7 +15,7 @@ namespace ServerlessPersistence.Blob.Input
             [HttpTrigger(
                 AuthorizationLevel.Function,
                 nameof(HttpMethods.Get),
-                Route = "GetPlayerWithStreamInput/{id}")] HttpRequest request,
+                Route = "GetPlayerWithStreamBlobInput/{id}")] HttpRequest request,
             string id,
             [Blob(
                 "players/in/player-{id}.json",
