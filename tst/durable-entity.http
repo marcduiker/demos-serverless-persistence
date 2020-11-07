@@ -1,0 +1,7 @@
+@baseUrl=http://localhost:7071/api
+@playerName=Ada
+@points=50
+POST {{baseUrl}}/HighScoreClient/{{playerName}}/{{points}}
+
+###
+GET {{baseUrl}}/HighScoreClient/{{playerName}}
