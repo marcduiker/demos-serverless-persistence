@@ -34,8 +34,15 @@ namespace ServerlessPersistence.DurableEntity
             }
             else if (message.Method.Method == HttpMethods.Get)
             {
-                var state = await durableClient.ReadEntityStateAsync<HighScore>(entityId);
-                responseMessage = $"{playerName} has a highscore of {state.EntityState.CurrentValue} points.";
+                var entityResponse = await durableClient.ReadEntityStateAsync<HighScore>(entityId);
+                if (entityResponse.EntityExists)
+                {
+                    responseMessage = $"{playerName} has a highscore of {entityResponse.EntityState.CurrentValue} points.";
+                }
+                else 
+                {
+                    responseMessage = $"No data available for {playerName}.";
+                }
             }
 
             return new OkObjectResult(responseMessage);

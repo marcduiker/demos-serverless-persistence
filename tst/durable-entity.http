@@ -1,5 +1,5 @@
 @baseUrl=http://localhost:7071/api
-@playerName=Ada
+@playerName=Grace
 @points=50
 POST {{baseUrl}}/HighScoreClient/{{playerName}}/{{points}}
 
