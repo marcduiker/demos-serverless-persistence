@@ -31,19 +31,20 @@ namespace ServerlessPersistence.CosmosDB.Input
                 collectionUri,
                 new FeedOptions() { 
                     PartitionKey = new PartitionKey(region) })
-                .Where(player => player.NickName != "")
+                .Where(player => player.Email != "")
+                .Select(player => player.NickName)
                 .AsDocumentQuery();
 
-            var playerNames = new List<string>();
+            var nickNames = new List<string>();
             while (query.HasMoreResults)
             {
-                foreach (var player in await query.ExecuteNextAsync<Player>())
+                foreach (var nickName in await query.ExecuteNextAsync<string>())
                 {
-                    playerNames.Add(player.NickName);
+                    nickNames.Add(nickName);
                 }
             }
 
-            return new OkObjectResult(playerNames);
+            return new OkObjectResult(nickNames);
         }
     }
 }
