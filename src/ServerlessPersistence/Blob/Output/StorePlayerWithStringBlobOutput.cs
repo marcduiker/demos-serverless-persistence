@@ -16,25 +16,24 @@ namespace ServerlessPersistence.Blob.Output
             [HttpTrigger(
                 AuthorizationLevel.Function,
                 nameof(HttpMethods.Post),
-                Route = null)] HttpRequestMessage message,
+                Route = null)] Player player,
             [Blob(
                 "players/out/string-{rand-guid}.json",
                 FileAccess.Write)] out string playerBlob
         )
         {
-            var player = message.Content.ReadAsAsync<Player>().GetAwaiter().GetResult();
-
+            playerBlob = default;
             IActionResult result;
+
             if (player == null)
             {
                 result = new BadRequestObjectResult("No player data in request.");
             }
             else
             {
+                playerBlob = JsonConvert.SerializeObject(player, Formatting.Indented);
                 result = new AcceptedResult();
             }
-
-            playerBlob = JsonConvert.SerializeObject(player, Formatting.Indented);
 
             return result;
         }
