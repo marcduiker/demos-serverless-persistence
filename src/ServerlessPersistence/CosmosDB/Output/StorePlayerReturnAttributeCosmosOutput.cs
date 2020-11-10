@@ -1,7 +1,5 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using System.Net.Http;
-using System.Threading.Tasks;
 using ServerlessPersistence.Models;
 using Microsoft.AspNetCore.Http;
 
@@ -14,14 +12,12 @@ namespace ServerlessPersistence.CosmosDB.Output
             CosmosDBConfig.Database, 
             CosmosDBConfig.Collection, 
             ConnectionStringSetting = CosmosDBConfig.ConnectionStringSetting)]
-        public static async Task<Player> Run(
+        public static Player Run(
             [HttpTrigger(
                 AuthorizationLevel.Function, 
                 nameof(HttpMethods.Post), 
-                Route = null)] HttpRequestMessage message)
+                Route = null)] Player player)
         {
-            var player = await message.Content.ReadAsAsync<Player>();
-
             return player;
         }
     }
