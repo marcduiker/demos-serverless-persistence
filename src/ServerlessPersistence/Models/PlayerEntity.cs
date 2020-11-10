@@ -23,5 +23,11 @@ namespace ServerlessPersistence.Models
         public string NickName { get; set; }
         public string Email { get; set; }
         public string Region { get; set; }
+
+        public void SetKeys()
+        {
+            PartitionKey = Region;
+            RowKey = Id;
+        }
     }
 }

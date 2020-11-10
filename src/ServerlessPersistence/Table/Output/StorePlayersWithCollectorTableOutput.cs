@@ -23,6 +23,7 @@ namespace ServerlessPersistence.Table.Output
 
             foreach (var playerEntity in playerEntities)
             {
+                playerEntity.SetKeys();
                 await collector.AddAsync(playerEntity);
             }
 

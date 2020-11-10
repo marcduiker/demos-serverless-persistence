@@ -18,6 +18,7 @@ namespace ServerlessPersistence.Table.Output
                 Route = null)] HttpRequestMessage message)
         {
             var playerEntity = await message.Content.ReadAsAsync<PlayerEntity>();
+            playerEntity.SetKeys();
 
             return playerEntity;
         }
