@@ -1,10 +1,8 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using System.Net.Http;
 using System.Threading.Tasks;
 using ServerlessPersistence.Models;
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 
 namespace ServerlessPersistence.CosmosDB.Output
@@ -16,11 +14,9 @@ namespace ServerlessPersistence.CosmosDB.Output
             [HttpTrigger(
                 AuthorizationLevel.Function, 
                 nameof(HttpMethods.Post), 
-                Route = null)] HttpRequestMessage message,
+                Route = null)] Player[] players,
             [CosmosDB(CosmosDBConfig.Database, CosmosDBConfig.Collection, ConnectionStringSetting = CosmosDBConfig.ConnectionStringSetting)] IAsyncCollector<Player> collector)
         {
-            var players = await message.Content.ReadAsAsync<IEnumerable<Player>>();
-
             foreach (var player in players)
             {
                 await collector.AddAsync(player);

@@ -11,13 +11,12 @@ namespace ServerlessPersistence.Table.Output
     {
         [FunctionName(nameof(StorePlayerReturnAttributeTableOutput))]
         [return: Table(TableConfig.Table)]
-        public static async Task<PlayerEntity> Run(
+        public static PlayerEntity Run(
             [HttpTrigger(
                 AuthorizationLevel.Function,
                 nameof(HttpMethods.Post),
-                Route = null)] HttpRequestMessage message)
+                Route = null)] PlayerEntity playerEntity)
         {
-            var playerEntity = await message.Content.ReadAsAsync<PlayerEntity>();
             playerEntity.SetKeys();
 
             return playerEntity;
