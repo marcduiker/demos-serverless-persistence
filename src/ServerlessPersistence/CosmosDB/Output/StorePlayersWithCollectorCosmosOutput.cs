@@ -15,7 +15,10 @@ namespace ServerlessPersistence.CosmosDB.Output
                 AuthorizationLevel.Function, 
                 nameof(HttpMethods.Post), 
                 Route = null)] Player[] players,
-            [CosmosDB(CosmosDBConfig.Database, CosmosDBConfig.Collection, ConnectionStringSetting = CosmosDBConfig.ConnectionStringSetting)] IAsyncCollector<Player> collector)
+            [CosmosDB(
+                CosmosDBConfig.Database, 
+                CosmosDBConfig.Collection, 
+                ConnectionStringSetting = CosmosDBConfig.ConnectionStringSetting)] IAsyncCollector<Player> collector)
         {
             foreach (var player in players)
             {
