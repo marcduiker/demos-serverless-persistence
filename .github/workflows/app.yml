@@ -9,7 +9,8 @@ on:
   workflow_dispatch:
 
 env:
-  DOTNET_VERSION: '3.1.x'
+  DOTNET_VERSION: '6.0.x'
+  FUNCTION_APP_PATH: 'src/ServerlessPersistence'
 
 jobs:
   Application:
@@ -25,6 +26,6 @@ jobs:
     - name: 'Resolve Project Dependencies'
       shell: bash
       run: |
-        pushd './${{ env.FUNCTION_APP_PACKAGE_PATH }}'
+        pushd './${{ env.FUNCTION_APP_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
