@@ -1,0 +1,30 @@
+name: application
+on:
+  push:
+    branches:
+      - main
+    paths:
+    - 'src/**'
+    - '.github/workflows/app.yml'
+  workflow_dispatch:
+
+env:
+  DOTNET_VERSION: '3.1.x'
+
+jobs:
+  Application:
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
+    - name: Setup .NET ${{ env.DOTNET_VERSION }} Environment
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+    - name: 'Resolve Project Dependencies'
+      shell: bash
+      run: |
+        pushd './${{ env.FUNCTION_APP_PACKAGE_PATH }}'
+        dotnet build --configuration Release --output ./output
+        popd
