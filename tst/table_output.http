@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
     "id": "{{$guid}}",
-    "nickName" : "Ada",
+    "name" : "Ada",
     "email" : "ada@lovelace.org",
     "region" : "United Kingdom"
 }
@@ -19,19 +19,19 @@ Content-Type: application/json
 [
     {
         "id": "{{$guid}}",
-        "nickName" : "Grace",
-        "email" : "grace@hopper.org",
-        "region" : "United States of America"
-    },
-    {
-        "id": "{{$guid}}",
-        "nickName" : "Ada",
+        "name" : "Ada",
         "email" : "ada@lovelace.org",
         "region" : "United Kingdom"
     },
     {
         "id": "{{$guid}}",
-        "nickName" : "Margaret",
+        "name" : "Grace",
+        "email" : "grace@hopper.org",
+        "region" : "United States of America"
+    },
+    {
+        "id": "{{$guid}}",
+        "name" : "Margaret",
         "email" : "margaret@hamilton.org",
         "region" : "United States of America"
     }

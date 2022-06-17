@@ -9,13 +9,13 @@ namespace ServerlessPersistence.Models
         public PlayerEntity(
             string region,
             string id,
-            string nickName,
+            string name,
             string email) 
             : base(partitionKey: region, rowKey: id)
         {
             Region = region;
             Id = id;
-            Name = nickName;
+            Name = name;
             Email = email; 
         }
 
