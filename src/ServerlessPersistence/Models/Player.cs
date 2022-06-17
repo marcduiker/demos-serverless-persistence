@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace ServerlessPersistence.Models
 {
     public class Player
@@ -8,16 +6,9 @@ namespace ServerlessPersistence.Models
         {
         }
 
-        [JsonProperty("id")]
         public string Id { get; set; }
-        
-        [JsonProperty("nickName")]
-        public string NickName { get; set; }
-        
-        [JsonProperty("email")]
+        public string Name { get; set; }
         public string Email { get; set; }
-        
-        [JsonProperty("region")]
         public string Region { get; set; }
     }
 }

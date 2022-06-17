@@ -2,9 +2,9 @@ using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Newtonsoft.Json;
 using ServerlessPersistence.Models;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace ServerlessPersistence.Blob.Output
 {
@@ -30,7 +30,8 @@ namespace ServerlessPersistence.Blob.Output
             }
             else
             {
-                playerBlob = JsonConvert.SerializeObject(player, Formatting.Indented);
+                var serializerOptions = new JsonSerializerOptions() { WriteIndented = true };
+                playerBlob = JsonSerializer.Serialize(player, serializerOptions);
                 result = new AcceptedResult();
             }
 

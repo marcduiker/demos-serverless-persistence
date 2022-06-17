@@ -1,13 +1,10 @@
 # Blob input requests
-
+# Requires that json located in the tst/data folder are uploaded to the players/in/ container.
 @baseUrl = http://localhost:7071/api
-@id1 = 470ef8af-27f9-469f-95a2-48b027e0ffff
+@id = 6bef5436-6106-42fa-9e37-eab36d0860d8
 ### Stream
-GET {{baseUrl}}/GetPlayerWithStreamBlobInput/{{id1}}
+GET {{baseUrl}}/GetPlayerWithStreamBlobInput/{{id}}
 
 ### Dynamic
-@id2 = 4ce18929-7932-4c8b-bf1b-d6ca2b456fe7
-GET {{baseUrl}}/GetPlayerWithStringBlobInputDynamic?id={{id2}}
-
-### BlobList
-GET {{baseUrl}}/GetBlobNamesWithContainerBlobInput
+@name = Margaret
+GET {{baseUrl}}/GetPlayerWithStringBlobInputDynamic?name={{name}}

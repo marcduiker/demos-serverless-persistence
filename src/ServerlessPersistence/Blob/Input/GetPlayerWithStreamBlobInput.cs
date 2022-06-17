@@ -18,7 +18,7 @@ namespace ServerlessPersistence.Blob.Input
                 Route = "GetPlayerWithStreamBlobInput/{id}")] HttpRequest request,
             string id,
             [Blob(
-                "players/in/player-{id}.json",
+                "players/in/stream-{id}.json",
                 FileAccess.Read)] Stream playerStream
         )
         {
@@ -26,6 +26,10 @@ namespace ServerlessPersistence.Blob.Input
             if (string.IsNullOrEmpty(id))
             {
                 result = new BadRequestObjectResult("No player id route.");
+            }
+            else if (playerStream == null)
+            {
+                result = new BadRequestObjectResult("No player blob available with this id.");
             }
             else
             {

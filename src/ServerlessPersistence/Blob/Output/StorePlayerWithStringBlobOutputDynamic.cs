@@ -2,10 +2,10 @@ using System.IO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Newtonsoft.Json;
 using System.Threading.Tasks;
 using ServerlessPersistence.Models;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace ServerlessPersistence.Blob.Output
 {
@@ -27,10 +27,11 @@ namespace ServerlessPersistence.Blob.Output
             }
             else
             {
-                var blobAttribute = new BlobAttribute($"players/out/dynamic-{player.Id}.json");
+                var blobAttribute = new BlobAttribute($"players/out/dynamic-{player.Name}.json");
                 using (var output = await binder.BindAsync<TextWriter>(blobAttribute))
                 {
-                    await output.WriteAsync(JsonConvert.SerializeObject(player));
+                    var serializerOptions = new JsonSerializerOptions() { WriteIndented = true };
+                    await output.WriteAsync(JsonSerializer.Serialize(player, serializerOptions));
                 }
 
                 result = new AcceptedResult();

@@ -19,17 +19,17 @@ namespace ServerlessPersistence.Blob.Output
             IBinder binder
         )
         {
-            string id = request.Query["id"];
+            string name = request.Query["name"];
 
             IActionResult result;
-            if (string.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(name))
             {
-                result = new BadRequestObjectResult("No player data in request.");
+                result = new BadRequestObjectResult("No player name in request.");
             }
             else
             {
                 string content;
-                var blobAttribute = new BlobAttribute($"players/in/player-{id}.json");
+                var blobAttribute = new BlobAttribute($"players/in/dynamic-{name}.json");
                 using (var input = await binder.BindAsync<TextReader>(blobAttribute))
                 {
                     content = await input.ReadToEndAsync();

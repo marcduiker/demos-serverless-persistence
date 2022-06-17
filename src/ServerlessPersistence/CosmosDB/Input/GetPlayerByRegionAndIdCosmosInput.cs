@@ -17,9 +17,9 @@ namespace ServerlessPersistence.CosmosDB.Input
             string region,
             string id,
             [CosmosDB(
-                CosmosDBConfig.Database, 
-                CosmosDBConfig.Collection,
-                ConnectionStringSetting = CosmosDBConfig.ConnectionStringSetting,
+                "gamedb", 
+                "players",
+                ConnectionStringSetting = "CosmosDBConnectionGameDB",
                 PartitionKey = "{region}",
                 Id =  "{id}")] Player player)
         {

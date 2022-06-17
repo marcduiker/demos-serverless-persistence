@@ -21,18 +21,18 @@ namespace ServerlessPersistence.CosmosDB.Input
                 nameof(HttpMethods.Get),
                 Route = null)] HttpRequest request,
             [CosmosDB(
-                CosmosDBConfig.Database, 
-                CosmosDBConfig.Collection,
-                ConnectionStringSetting = CosmosDBConfig.ConnectionStringSetting)] DocumentClient documentClient)
+                "gamedb", 
+                "players",
+                ConnectionStringSetting = "CosmosDBConnectionGameDB")] DocumentClient documentClient)
         {
             string region = request.Query["region"];
-            var collectionUri = UriFactory.CreateDocumentCollectionUri(CosmosDBConfig.Database, CosmosDBConfig.Collection);
+            var collectionUri = UriFactory.CreateDocumentCollectionUri("gamedb", "players");
             var query = documentClient.CreateDocumentQuery<Player>(
                 collectionUri,
                 new FeedOptions() { 
                     PartitionKey = new PartitionKey(region) })
                 .Where(player => player.Email != "")
-                .Select(player => player.NickName)
+                .Select(player => player.Name)
                 .AsDocumentQuery();
 
             var nickNames = new List<string>();

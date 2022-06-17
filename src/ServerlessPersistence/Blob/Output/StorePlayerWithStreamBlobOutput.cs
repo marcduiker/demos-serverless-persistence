@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Newtonsoft.Json;
 using ServerlessPersistence.Models;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace ServerlessPersistence.Blob.Output
 {
@@ -30,7 +30,8 @@ namespace ServerlessPersistence.Blob.Output
             else
             {
                 using var writer = new StreamWriter(playerStream);
-                var jsonData = JsonConvert.SerializeObject(player);
+                var serializerOptions = new JsonSerializerOptions() { WriteIndented = true };
+                var jsonData = JsonSerializer.Serialize(player, serializerOptions);
                 await writer.WriteLineAsync(jsonData);
 
                 result = new AcceptedResult();

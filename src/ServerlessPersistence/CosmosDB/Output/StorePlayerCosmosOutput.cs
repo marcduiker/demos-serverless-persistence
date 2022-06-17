@@ -14,9 +14,9 @@ namespace ServerlessPersistence.CosmosDB.Output
                 "post", 
                 Route = null)] Player playerInput,
             [CosmosDB(
-                CosmosDBConfig.Database, 
-                CosmosDBConfig.Collection, 
-                ConnectionStringSetting = CosmosDBConfig.ConnectionStringSetting)] out Player playerOutput)
+                "gamedb", 
+                "players", 
+                ConnectionStringSetting = "CosmosDBConnectionGameDB")] out Player playerOutput)
         {
             playerOutput = playerInput;
 

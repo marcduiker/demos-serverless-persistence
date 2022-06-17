@@ -9,9 +9,9 @@ namespace ServerlessPersistence.CosmosDB.Output
     {
         [FunctionName(nameof(StorePlayerReturnAttributeCosmosOutput))]
         [return: CosmosDB(
-            CosmosDBConfig.Database, 
-            CosmosDBConfig.Collection, 
-            ConnectionStringSetting = CosmosDBConfig.ConnectionStringSetting)]
+            "gamedb", 
+            "players", 
+            ConnectionStringSetting = "CosmosDBConnectionGameDB")]
         public static Player Run(
             [HttpTrigger(
                 AuthorizationLevel.Function, 

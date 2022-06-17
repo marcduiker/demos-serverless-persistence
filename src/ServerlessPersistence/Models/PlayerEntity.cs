@@ -15,12 +15,12 @@ namespace ServerlessPersistence.Models
         {
             Region = region;
             Id = id;
-            NickName = nickName;
+            Name = nickName;
             Email = email; 
         }
 
         public string Id { get; set; }
-        public string NickName { get; set; }
+        public string Name { get; set; }
         public string Email { get; set; }
         public string Region { get; set; }
 
