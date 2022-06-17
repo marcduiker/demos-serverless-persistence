@@ -15,7 +15,7 @@ namespace ServerlessPersistence.Table.Output
                 AuthorizationLevel.Function,
                 nameof(HttpMethods.Post),
                 Route = null)] PlayerEntity[] playerEntities,
-            [Table(TableConfig.Table)] IAsyncCollector<PlayerEntity> collector)
+            [Table("players")] IAsyncCollector<PlayerEntity> collector)
         {
             foreach (var playerEntity in playerEntities)
             {

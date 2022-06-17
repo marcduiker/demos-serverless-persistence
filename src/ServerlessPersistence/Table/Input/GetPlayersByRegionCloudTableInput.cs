@@ -3,7 +3,8 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using ServerlessPersistence.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Azure.Cosmos.Table;
+using Azure.Data.Tables;
+using System.Linq;
 
 namespace ServerlessPersistence.Table.Input
 {
@@ -15,18 +16,12 @@ namespace ServerlessPersistence.Table.Input
                 AuthorizationLevel.Function,
                 nameof(HttpMethods.Get),
                 Route = null)] HttpRequest request,
-            [Table(TableConfig.Table)] CloudTable cloudTable)
+            [Table("players")] TableClient tableClient)
         {
             string region = request.Query["region"];
-            var regionFilter = new TableQuery<PlayerEntity>()
-                .Where(
-                    TableQuery.GenerateFilterCondition(
-                        "PartitionKey", 
-                        QueryComparisons.Equal,
-                        region));
-            var playerEntities = cloudTable.ExecuteQuery<PlayerEntity>(regionFilter);
+            var playerEntities = tableClient.Query<PlayerEntity>(entity => entity.Region == region);
 
-            return new OkObjectResult(playerEntities);
+            return new OkObjectResult(playerEntities.ToList());
         }
     }
 }

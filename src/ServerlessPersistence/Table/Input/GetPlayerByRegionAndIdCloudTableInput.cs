@@ -17,7 +17,7 @@ namespace ServerlessPersistence.Table.Input
             string region,
             string id,
             [Table(
-                TableConfig.Table,
+                "players",
                 "{region}",
                 "{id}")] PlayerEntity playerEntity)
         {

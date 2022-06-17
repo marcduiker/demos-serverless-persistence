@@ -1,8 +1,10 @@
-using Microsoft.Azure.Cosmos.Table;
+using System;
+using Azure;
+using Azure.Data.Tables;
 
 namespace ServerlessPersistence.Models
 {
-    public class PlayerEntity : TableEntity
+    public class PlayerEntity : ITableEntity
     {
         public PlayerEntity()
         {}
@@ -11,14 +13,19 @@ namespace ServerlessPersistence.Models
             string id,
             string name,
             string email) 
-            : base(partitionKey: region, rowKey: id)
         {
             Region = region;
             Id = id;
             Name = name;
-            Email = email; 
+            Email = email;
+            SetKeys();
         }
 
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
+        public ETag ETag { get; set; }
+        
         public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
