@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace ServerlessPersistence
 {
-    public interface IHighScoreOperations
+    public interface IPlayerScore
     {
         void Add(int points);
         void Reset();

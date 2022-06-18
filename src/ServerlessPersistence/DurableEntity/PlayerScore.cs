@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 namespace ServerlessPersistence
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class HighScore : IHighScoreOperations
+    public class PlayerScore : IPlayerScore
     {
         [JsonProperty("value")]
         public int CurrentValue { get; set; }
@@ -15,8 +15,8 @@ namespace ServerlessPersistence
 
         public void Reset() => this.CurrentValue = 0;
 
-        [FunctionName(nameof(HighScore))]
+        [FunctionName(nameof(PlayerScore))]
         public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-            => ctx.DispatchAsync<HighScore>();
+            => ctx.DispatchAsync<PlayerScore>();
     }
 }
