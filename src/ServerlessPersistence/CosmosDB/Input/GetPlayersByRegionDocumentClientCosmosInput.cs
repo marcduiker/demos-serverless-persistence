@@ -20,10 +20,7 @@ namespace ServerlessPersistence.CosmosDB.Input
                 AuthorizationLevel.Function,
                 nameof(HttpMethods.Get),
                 Route = null)] HttpRequest request,
-            [CosmosDB(
-                "gamedb", 
-                "players",
-                ConnectionStringSetting = "CosmosDBConnectionGameDB")] DocumentClient documentClient)
+            [CosmosDB(ConnectionStringSetting = "CosmosDBConnectionGameDB")] DocumentClient documentClient)
         {
             string region = request.Query["region"];
             var collectionUri = UriFactory.CreateDocumentCollectionUri("gamedb", "players");
@@ -35,16 +32,16 @@ namespace ServerlessPersistence.CosmosDB.Input
                 .Select(player => player.Name)
                 .AsDocumentQuery();
 
-            var nickNames = new List<string>();
+            var names = new List<string>();
             while (query.HasMoreResults)
             {
-                foreach (var nickName in await query.ExecuteNextAsync<string>())
+                foreach (var name in await query.ExecuteNextAsync<string>())
                 {
-                    nickNames.Add(nickName);
+                    names.Add(name);
                 }
             }
 
-            return new OkObjectResult(nickNames);
+            return new OkObjectResult(names);
         }
     }
 }

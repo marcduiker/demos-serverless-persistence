@@ -4,7 +4,7 @@ using ServerlessPersistence.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 
-namespace ServerlessPersistence.Table.Input
+namespace c.Table.Input
 {
     public static class GetPlayerByRegionAndIdTableInput
     {

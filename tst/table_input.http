@@ -1,7 +1,7 @@
 # Table Input requests
 @baseUrl = http://localhost:7071/api
 @region = United States of America
-@id = 21115d39-23e1-4a51-ac67-a68f06e98b2e
+@id = f547b999-931e-411e-85c9-e4eb8bc92f1a
 
 ### Get a single player by Id
 GET {{baseUrl}}/GetPlayerByRegionAndIdTableInput/{{region}}/{{id}}
