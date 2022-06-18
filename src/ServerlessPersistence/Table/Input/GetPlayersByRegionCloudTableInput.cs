@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace ServerlessPersistence.Table.Input
 {
-    public static class GetPlayersByRegionCloudTableInput
+    public static class GetPlayersByRegionTableClient
     {
-        [FunctionName(nameof(GetPlayersByRegionCloudTableInput))]
+        [FunctionName(nameof(GetPlayersByRegionTableClient))]
         public static IActionResult Run(
             [HttpTrigger(
                 AuthorizationLevel.Function,

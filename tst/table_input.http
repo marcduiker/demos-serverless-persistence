@@ -7,4 +7,4 @@
 GET {{baseUrl}}/GetPlayerByRegionAndIdTableInput/{{region}}/{{id}}
 
 ### Get multiple players by region
-GET {{baseUrl}}/GetPlayersByRegionCloudTableInput?region={{region}}
+GET {{baseUrl}}/GetPlayersByRegionTableClient?region={{region}}
