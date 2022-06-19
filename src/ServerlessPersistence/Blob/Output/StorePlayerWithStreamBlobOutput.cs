@@ -18,7 +18,7 @@ namespace ServerlessPersistence.Blob.Output
                 nameof(HttpMethods.Post),
                 Route = null)] Player player,
             [Blob(
-                "players/out/stream-{rand-guid}.json",
+                "players/out/stream-{id}.json",
                 FileAccess.Write)] Stream playerStream
         )
         {
