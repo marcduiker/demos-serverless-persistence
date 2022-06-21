@@ -1,0 +1,16 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "1. Solution",
+  "isPrimary": true,
+  "nextTour": "2. Blob output",
+  "steps": [
+    {
+      "directory": "src/ServerlessPersistence",
+      "description": "### ServerlessPersistence Function App\r\n\r\nThe `src/ServerlessPersistence` folder contains the Azure Functions project with the C# .NET 6 functions.`\r\n\r\nFunctions are categorized in folders:\r\n- Blob\r\n- Table\r\n- CosmosDB\r\n- DurableEntity\r\n\r\nThe `Blob`, `Table` and `CosmosDB` folders contain `Input` and `Output` subfolders for the respective input and output bindings that are used in the functions.\r\n\r\nThe `Model` function contains two classes that are using by some of the functions."
+    },
+    {
+      "directory": "tst",
+      "description": "### Tst folder\r\n\r\nThe `tst` folder contains http files, and test data, that can be used to test the local Function App.\r\n\r\nThe VSCode REST client extension can be used to call the endpoints in the http files."
+    }
+  ]
+}

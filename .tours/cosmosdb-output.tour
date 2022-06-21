@@ -1,0 +1,32 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "4. CosmosDB output",
+  "nextTour": "5. Durable entities",
+  "steps": [
+    {
+      "file": "tst/cosmos_output.http",
+      "description": "### CosmosDB output binding tests\r\n\r\nThe `cosmosdb_output.http` file contains the HTTP calls to test the functions that use CosmosDB output bindings. ",
+      "line": 1
+    },
+    {
+      "file": "tst/cosmos_output.http",
+      "description": "### POST to StorePlayerReturnAttributeCosmosOutput",
+      "line": 4
+    },
+    {
+      "file": "src/ServerlessPersistence/CosmosDB/Output/StorePlayerReturnAttributeCosmosOutput.cs",
+      "description": "### StorePlayerReturnAttributeCosmosOutput - return attribute\r\n\r\nThe `return` attribute indicates the return value of the function will be used as the return value for the CosmosDB output binding.\r\n\r\nThe CosmosDB binding requires a database name, collection name and a connection string.",
+      "line": 14
+    },
+    {
+      "file": "src/ServerlessPersistence/CosmosDB/Output/StorePlayerReturnAttributeCosmosOutput.cs",
+      "description": "### StorePlayerReturnAttributeCosmosOutput - output\r\n\r\nThe function directly returns the input.",
+      "line": 21
+    },
+    {
+      "file": "tst/cosmos_output.http",
+      "description": "### Execute StorePlayerReturnAttributeCosmosOutput",
+      "line": 4
+    }
+  ]
+}

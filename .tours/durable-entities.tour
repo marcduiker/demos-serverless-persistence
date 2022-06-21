@@ -1,0 +1,51 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "5. Durable entities",
+  "steps": [
+    {
+      "file": "tst/durable-entity.http",
+      "description": "### Durable Entity tests",
+      "line": 1
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - HTTP trigger\r\n\r\nThis function allows accepts both GET and POST requests.\r\nNote that the Route parameter contains the `playerName` and `points` (optional). ",
+      "line": 19
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - IDurableClient\r\n\r\nThe `IDurableClient` exposes methods to interact with durable entities.",
+      "line": 22
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - EntityID\r\n\r\nFirst an entity ID needs to be defined based on the entity class (`PlayerScore`) and a unique identifier for that entity (`playerName` in this case).",
+      "line": 25
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/PlayerScore.cs",
+      "description": "### PlayerScore\r\n\r\nThe `PlayerScore` is a class based entity function. A function that is stateful.",
+      "line": 9
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/PlayerScore.cs",
+      "description": "### PlayerScore\r\n\r\nCreating/updating the state is done via methods.",
+      "line": 14
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/PlayerScore.cs",
+      "description": "### PlayerScore - EntityTrigger\r\n\r\nThe `EntityTrigger` attribute indicates this is a entity function. ",
+      "line": 20
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - SignalEntity\r\n\r\nIf the method is a POST then a one-way message (signal) will be sent to the entity to update the player score.",
+      "line": 32
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - ReadEntityState\r\n\r\nIf the method is a GET then the entity state is retrieved. If the entity exists the properties of the object can be accessed.",
+      "line": 38
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "2. Blob output",
+  "nextTour": "3. Table output",
+  "steps": [
+    {
+      "directory": "src/ServerlessPersistence",
+      "description": "### ServerlessPersistence Function App\r\n\r\nThe `src/ServerlessPersistence` folder contains the Azure Functions project with the C# .NET 6 functions."
+    },
+    {
+      "directory": "tst",
+      "description": "### Tst folder\r\n\r\nThe `tst` folder contains http files, and test data, that can be used to test the local Function App."
+    },
+    {
+      "file": "tst/blob_output.http",
+      "description": "### Blob output binding tests\r\n\r\nThe `blob_output.http` file contains the HTTP calls to test the functions that use blob output bindings.",
+      "line": 1
+    },
+    {
+      "file": "tst/blob_output.http",
+      "description": "### Blob: StorePlayerWithStringBlobOutput\r\n\r\nWe're going to do an HTTP POST to the `StorePlayerWithStringBlobOutput` function.",
+      "line": 6
+    },
+    {
+      "file": "src/ServerlessPersistence/Models/Player.cs",
+      "description": "### Player class\r\n\r\nThe `Player` type is used for the Blob and CosmosDB related functions.",
+      "line": 5
+    },
+    {
+      "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
+      "description": "### StorePlayerWithStringBlobOutput function\r\n\r\nThis function will store player data to Blob Storage using the `string` type.",
+      "line": 13
+    },
+    {
+      "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
+      "description": "### StorePlayerWithStringBlobOutput - HTTP trigger\r\n\r\nThe HTTP request is expected to contain fields that correspond to the `Player` type.",
+      "line": 18
+    },
+    {
+      "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
+      "description": "### StorePlayerWithStringBlobOutput - Blob binding\r\nThis is the Blob output binding. The output type for this binding is a `string`.",
+      "line": 21
+    },
+    {
+      "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
+      "description": "### StorePlayerWithStringBlobOutput - Validate input\r\nIf `player` is null the a bad request response (HTTP 400) is sent back. ",
+      "line": 29
+    },
+    {
+      "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
+      "description": "### StorePlayerWithStringBlobOutput - Saving the blob\r\n\r\nIf the `player` is not null:  \r\n- The object is serialized. \r\n- The serialized result is assigned to the Blob output parameter. \r\n- An accepted response (HTTP 202) is returned.",
+      "line": 35
+    },
+    {
+      "file": "tst/blob_output.http",
+      "description": "### Execute the StorePlayerWithStringBlobOutput function\r\n\r\nStart Azurite & the Function App and do the POST request to `StorePlayerWithStringBlobOutput`.",
+      "line": 6
+    }
+  ]
+}

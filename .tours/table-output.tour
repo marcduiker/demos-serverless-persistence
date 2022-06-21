@@ -1,0 +1,47 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "3. Table output",
+  "nextTour": "3. CosmosDB output",
+  "steps": [
+    {
+      "file": "tst/table_output.http",
+      "description": "### Table output tests\r\n\r\nThe `table_output.http` file contains the HTTP calls to test the functions that use table output bindings.",
+      "line": 1
+    },
+    {
+      "file": "tst/table_output.http",
+      "description": "### POST StorePlayersWithCollectorTableOutput",
+      "line": 16
+    },
+    {
+      "file": "src/ServerlessPersistence/Table/Output/StorePlayersWithCollectorTableOutput.cs",
+      "description": "### StorePlayersWithCollectorTableOutput function",
+      "line": 12
+    },
+    {
+      "file": "src/ServerlessPersistence/Table/Output/StorePlayersWithCollectorTableOutput.cs",
+      "description": "### StorePlayersWithCollectorTableOutput - HTTP trigger",
+      "line": 17
+    },
+    {
+      "file": "src/ServerlessPersistence/Models/PlayerEntity.cs",
+      "description": "### PlayerEntity\r\n\r\n`PlayerEntity` is used by the funcions that use the Table binding.",
+      "line": 7
+    },
+    {
+      "file": "src/ServerlessPersistence/Table/Output/StorePlayersWithCollectorTableOutput.cs",
+      "description": "### StorePlayersWithCollectorTableOutput - Table binding\r\n\r\n`IAsyncCollector<T>` is used to collect multiple objects. The collector itself flushes its content automatically with the storage service.",
+      "line": 18
+    },
+    {
+      "file": "src/ServerlessPersistence/Table/Output/StorePlayersWithCollectorTableOutput.cs",
+      "description": "### StorePlayersWithCollectorTableOutput - AddAsync\r\n\r\n`PlayerEntity` objects are added to the collector.",
+      "line": 23
+    },
+    {
+      "file": "tst/table_output.http",
+      "description": "### Execute StorePlayersWithCollectorTableOutput",
+      "line": 16
+    }
+  ]
+}
