@@ -29,7 +29,7 @@ namespace ServerlessPersistence.DurableEntity
                 int pointsValue = int.Parse(points);
                 await durableClient.SignalEntityAsync<IPlayerScore>(
                     entityId,
-                    highScore => highScore.Add(pointsValue));
+                    playerScore => playerScore.Add(pointsValue));
                 responseMessage = $"Added {pointsValue} points for player {playerName}.";
             }
             else if (message.Method.Method == HttpMethods.Get)
