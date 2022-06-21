@@ -1,6 +1,7 @@
 # Blob output requests
 
 @baseUrl = http://localhost:7071/api
+
 ### String
 POST {{baseUrl}}/StorePlayerWithStringBlobOutput
 Content-Type: application/json
