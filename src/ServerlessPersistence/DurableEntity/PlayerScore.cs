@@ -9,11 +9,11 @@ namespace ServerlessPersistence
     public class PlayerScore : IPlayerScore
     {
         [JsonProperty("value")]
-        public int CurrentValue { get; set; }
+        public int HighScore { get; set; }
 
-        public void Add(int points) => this.CurrentValue += points;
+        public void Add(int points) => this.HighScore += points;
 
-        public void Reset() => this.CurrentValue = 0;
+        public void Reset() => this.HighScore = 0;
 
         [FunctionName(nameof(PlayerScore))]
         public static Task Run([EntityTrigger] IDurableEntityContext ctx)

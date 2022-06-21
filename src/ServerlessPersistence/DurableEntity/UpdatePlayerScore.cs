@@ -37,7 +37,7 @@ namespace ServerlessPersistence.DurableEntity
                 var entityResponse = await durableClient.ReadEntityStateAsync<PlayerScore>(entityId);
                 if (entityResponse.EntityExists)
                 {
-                    responseMessage = $"{playerName} has a highscore of {entityResponse.EntityState.CurrentValue} points.";
+                    responseMessage = $"{playerName} has a highscore of {entityResponse.EntityState.HighScore} points.";
                 }
                 else 
                 {
