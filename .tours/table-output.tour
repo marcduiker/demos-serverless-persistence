@@ -5,12 +5,7 @@
   "steps": [
     {
       "file": "tst/table_output.http",
-      "description": "### Table output tests\r\n\r\nThe `table_output.http` file contains the HTTP calls to test the functions that use table output bindings.",
-      "line": 1
-    },
-    {
-      "file": "tst/table_output.http",
-      "description": "### POST StorePlayersWithCollectorTableOutput",
+      "description": "### StorePlayersWithCollectorTableOutput\n\nWe're going to test the HTTP POST to the StorePlayersWithCollectorTableOutput function. It should store the request payload in Table storage.",
       "line": 16
     },
     {
@@ -40,7 +35,7 @@
     },
     {
       "file": "tst/table_output.http",
-      "description": "### Execute StorePlayersWithCollectorTableOutput",
+      "description": "### Execute StorePlayersWithCollectorTableOutput\n\nStart Azurite & the Function App and do the POST request to `StorePlayersWithCollectorTableOutput`.",
       "line": 16
     }
   ]

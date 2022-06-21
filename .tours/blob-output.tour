@@ -4,21 +4,8 @@
   "nextTour": "3. Table output",
   "steps": [
     {
-      "directory": "src/ServerlessPersistence",
-      "description": "### ServerlessPersistence Function App\r\n\r\nThe `src/ServerlessPersistence` folder contains the Azure Functions project with the C# .NET 6 functions."
-    },
-    {
-      "directory": "tst",
-      "description": "### Tst folder\r\n\r\nThe `tst` folder contains http files, and test data, that can be used to test the local Function App."
-    },
-    {
       "file": "tst/blob_output.http",
-      "description": "### Blob output binding tests\r\n\r\nThe `blob_output.http` file contains the HTTP calls to test the functions that use blob output bindings.",
-      "line": 1
-    },
-    {
-      "file": "tst/blob_output.http",
-      "description": "### Blob: StorePlayerWithStringBlobOutput\r\n\r\nWe're going to do an HTTP POST to the `StorePlayerWithStringBlobOutput` function.",
+      "description": "### StorePlayerWithStringBlobOutput\r\n\r\nWe're going to test the HTTP POST to the `StorePlayerWithStringBlobOutput` function. It should store the request payload in Blob storage.",
       "line": 6
     },
     {

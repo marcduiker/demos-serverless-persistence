@@ -5,12 +5,7 @@
   "steps": [
     {
       "file": "tst/cosmos_output.http",
-      "description": "### CosmosDB output binding tests\r\n\r\nThe `cosmosdb_output.http` file contains the HTTP calls to test the functions that use CosmosDB output bindings. ",
-      "line": 1
-    },
-    {
-      "file": "tst/cosmos_output.http",
-      "description": "### POST to StorePlayerReturnAttributeCosmosOutput",
+      "description": "### POST to StorePlayerReturnAttributeCosmosOutput\n\nWe're going to test the HTTP POST to the StorePlayerReturnAttributeCosmosOutput function. It should store the request payload in CosmosDB.",
       "line": 4
     },
     {
@@ -25,7 +20,7 @@
     },
     {
       "file": "tst/cosmos_output.http",
-      "description": "### Execute StorePlayerReturnAttributeCosmosOutput",
+      "description": "### Execute StorePlayerReturnAttributeCosmosOutput\n\nStart Azurite & the Function App & ensure a connection to Azure CosmosDB is specified in the local.settings.json. Do the POST request to `StorePlayerReturnAttributeCosmosOutput`.",
       "line": 4
     }
   ]
