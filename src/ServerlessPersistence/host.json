@@ -2,7 +2,11 @@
     "version": "2.0",
     "extensions": {
         "durableTask": {
-            "hubName": "PersistenceDemo"
+            "hubName": "PersistenceDemo",
+            "storageProvider": {
+                "maxQueuePollingInterval": "00:00:02"
+            },
+            "maxEntityOperationBatchSize": 1
           }
     },
     "logging": {
