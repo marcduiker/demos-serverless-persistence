@@ -4,20 +4,20 @@
   "steps": [
     {
       "directory": "src/ServerlessPersistence",
-      "description": "The `src/ServerlessPersistence` folder contains the Azure Functions project with the C# .NET 6 functions."
+      "description": "### ServerlessPersistence Function App\r\n\r\nThe `src/ServerlessPersistence` folder contains the Azure Functions project with the C# .NET 6 functions."
     },
     {
       "directory": "tst",
-      "description": "The `tst` folder contains http files, and test data, that can be used to test the local Function App."
+      "description": "### Tst folder\r\n\r\nThe `tst` folder contains http files, and test data, that can be used to test the local Function App."
     },
     {
       "file": "tst/blob_output.http",
-      "description": "The blob_output file contains the HTTP calls to test this Function App.",
+      "description": "### Blob output binding tests\r\n\r\nThe `blob_output.http` file contains the HTTP calls to test the functions that use blob output bindings.",
       "line": 1
     },
     {
       "file": "tst/blob_output.http",
-      "description": "We're going to do an HTTP POST to the `StorePlayerWithStringBlobOutput` function.",
+      "description": "### Blob: StorePlayerWithStringBlobOutput\r\n\r\nWe're going to do an HTTP POST to the `StorePlayerWithStringBlobOutput` function.",
       "line": 6,
       "selection": {
         "start": {
@@ -31,47 +31,48 @@
       }
     },
     {
-      "file": "tst/blob_output.http",
-      "description": "And this is the payload. The properties match with the `Player` type.",
-      "line": 14
-    },
-    {
       "file": "src/ServerlessPersistence/Models/Player.cs",
-      "description": "The `Player` type is used for the Blob and CosmosDB related functions.",
+      "description": "### Player class\r\n\r\nThe `Player` type is used for the Blob and CosmosDB related functions.",
       "line": 5
     },
     {
-      "directory": "src/ServerlessPersistence/Blob/Output",
-      "description": "The `Blob/Output` folder contains the functions that are using a Blob output binding to move data into into Blob Storage."
+      "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
+      "description": "### StorePlayerWithStringBlobOutput function\r\n\r\nThis function will store player data to Blob Storage using the `string` type.",
+      "line": 13,
+      "selection": {
+        "start": {
+          "line": 13,
+          "character": 30
+        },
+        "end": {
+          "line": 13,
+          "character": 61
+        }
+      }
     },
     {
       "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
-      "description": "This function will store player data to Blob Storage using the `string` type.",
-      "line": 13
-    },
-    {
-      "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
-      "description": "The HTTP request is expected to contain fields that correspond to the `Player` type.",
+      "description": "### StorePlayerWithStringBlobOutput - HTTP trigger\r\n\r\nThe HTTP request is expected to contain fields that correspond to the `Player` type.",
       "line": 18
     },
     {
       "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
-      "description": "This is the Blob output binding. The output type for this binding is a `string`.",
+      "description": "### StorePlayerWithStringBlobOutput - Blob binding\r\nThis is the Blob output binding. The output type for this binding is a `string`.",
       "line": 21
     },
     {
       "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
-      "description": "If `player` is null the a bad request response (HTTP 400) is sent back. ",
+      "description": "### StorePlayerWithStringBlobOutput - Validate input\r\nIf `player` is null the a bad request response (HTTP 400) is sent back. ",
       "line": 29
     },
     {
       "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
-      "description": "If the `player` is not null:  \r\n- The object is serialized. \r\n- The serialized result is assigned to the Blob output parameter. \r\n- An accepted response (HTTP 202) is returned.",
+      "description": "### StorePlayerWithStringBlobOutput - Saving the blob\r\n\r\nIf the `player` is not null:  \r\n- The object is serialized. \r\n- The serialized result is assigned to the Blob output parameter. \r\n- An accepted response (HTTP 202) is returned.",
       "line": 35
     },
     {
       "file": "tst/blob_output.http",
-      "description": "Start Azurite & the Function App and do the POST request to `StorePlayerWithStringBlobOutput`.",
+      "description": "### Execute the StorePlayerWithStringBlobOutput function\r\n\r\nStart Azurite & the Function App and do the POST request to `StorePlayerWithStringBlobOutput`.",
       "line": 6,
       "selection": {
         "start": {
@@ -81,13 +82,198 @@
         "end": {
           "line": 6,
           "character": 49
+        }
+      }
+    },
+    {
+      "file": "tst/table_output.http",
+      "description": "### Table output tests\r\n\r\nThe `table_output.http` file contains the HTTP calls to test the functions that use table output bindings.",
+      "line": 1
+    },
+    {
+      "file": "tst/table_output.http",
+      "description": "### POST StorePlayersWithCollectorTableOutput",
+      "line": 16,
+      "selection": {
+        "start": {
+          "line": 16,
+          "character": 18
+        },
+        "end": {
+          "line": 16,
+          "character": 54
+        }
+      }
+    },
+    {
+      "file": "src/ServerlessPersistence/Table/Output/StorePlayersWithCollectorTableOutput.cs",
+      "description": "### StorePlayersWithCollectorTableOutput function",
+      "line": 12,
+      "selection": {
+        "start": {
+          "line": 12,
+          "character": 30
+        },
+        "end": {
+          "line": 12,
+          "character": 66
+        }
+      }
+    },
+    {
+      "file": "src/ServerlessPersistence/Table/Output/StorePlayersWithCollectorTableOutput.cs",
+      "description": "### StorePlayersWithCollectorTableOutput - HTTP trigger",
+      "line": 17
+    },
+    {
+      "file": "src/ServerlessPersistence/Models/PlayerEntity.cs",
+      "description": "### PlayerEntity\r\n\r\n`PlayerEntity` is used by the funcions that use the Table binding.",
+      "line": 7
+    },
+    {
+      "file": "src/ServerlessPersistence/Table/Output/StorePlayersWithCollectorTableOutput.cs",
+      "description": "### StorePlayersWithCollectorTableOutput - Table binding\r\n\r\n`IAsyncCollector<T>` is used to collect multiple objects. The collector itself flushes its content automatically with the storage service.",
+      "line": 18,
+      "selection": {
+        "start": {
+          "line": 18,
+          "character": 32
+        },
+        "end": {
+          "line": 18,
+          "character": 47
+        }
+      }
+    },
+    {
+      "file": "src/ServerlessPersistence/Table/Output/StorePlayersWithCollectorTableOutput.cs",
+      "description": "### StorePlayersWithCollectorTableOutput - AddAsync\r\n\r\n`PlayerEntity` objects are added to the collector.",
+      "line": 23
+    },
+    {
+      "file": "tst/table_output.http",
+      "description": "### Execute StorePlayersWithCollectorTableOutput",
+      "line": 16,
+      "selection": {
+        "start": {
+          "line": 16,
+          "character": 18
+        },
+        "end": {
+          "line": 16,
+          "character": 54
         }
       }
     },
     {
       "file": "tst/cosmos_output.http",
-      "description": "This is the test file for functions that use the CosmosDB output bindig. ",
+      "description": "### CosmosDB output binding tests\r\n\r\nThe `cosmosdb_output.http` file contains the HTTP calls to test the functions that use CosmosDB output bindings. ",
       "line": 1
+    },
+    {
+      "file": "tst/cosmos_output.http",
+      "description": "### POST to StorePlayerReturnAttributeCosmosOutput",
+      "line": 4,
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 18
+        },
+        "end": {
+          "line": 4,
+          "character": 56
+        }
+      }
+    },
+    {
+      "file": "src/ServerlessPersistence/CosmosDB/Output/StorePlayerReturnAttributeCosmosOutput.cs",
+      "description": "### StorePlayerReturnAttributeCosmosOutput - return attribute\r\n\r\nThe `return` attribute indicates the return value of the function will be used as the return value for the CosmosDB output binding.\r\n\r\nThe CosmosDB binding requires a database name, collection name and a connection string.",
+      "line": 14,
+      "selection": {
+        "start": {
+          "line": 10,
+          "character": 30
+        },
+        "end": {
+          "line": 10,
+          "character": 68
+        }
+      }
+    },
+    {
+      "file": "src/ServerlessPersistence/CosmosDB/Output/StorePlayerReturnAttributeCosmosOutput.cs",
+      "description": "### StorePlayerReturnAttributeCosmosOutput - output\r\n\r\nThe function directly returns the input.",
+      "line": 21
+    },
+    {
+      "file": "tst/cosmos_output.http",
+      "description": "### Execute StorePlayerReturnAttributeCosmosOutput",
+      "line": 4,
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 18
+        },
+        "end": {
+          "line": 4,
+          "character": 56
+        }
+      }
+    },
+    {
+      "file": "tst/durable-entity.http",
+      "description": "### Durable Entity tests",
+      "line": 1
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - HTTP trigger\r\n\r\nThis function allows accepts both GET and POST requests.\r\nNote that the Route parameter contains the `playerName` and `points` (optional). ",
+      "line": 19,
+      "selection": {
+        "start": {
+          "line": 11,
+          "character": 25
+        },
+        "end": {
+          "line": 11,
+          "character": 42
+        }
+      }
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - IDurableClient\r\n\r\nThe `IDurableClient` exposes methods to interact with durable entities.",
+      "line": 22
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - EntityID\r\n\r\nFirst an entity ID needs to be defined based on the entity class (`PlayerScore`) and a unique identifier for that entity (`playerName` in this case).",
+      "line": 25
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/PlayerScore.cs",
+      "description": "### PlayerScore\r\n\r\nThe `PlayerScore` is a class based entity function. A function that is stateful.",
+      "line": 9
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/PlayerScore.cs",
+      "description": "### PlayerScore\r\n\r\nCreating/updating the state is done via methods.",
+      "line": 14
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/PlayerScore.cs",
+      "description": "### PlayerScore - EntityTrigger\r\n\r\nThe `EntityTrigger` attribute indicates this is a entity function. ",
+      "line": 20
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - SignalEntity\r\n\r\nIf the method is a POST then a one-way message (signal) will be sent to the entity to update the player score.",
+      "line": 32
+    },
+    {
+      "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
+      "description": "### UpdatePlayerScore - ReadEntityState\r\n\r\nIf the method is a GET then the entity state is retrieved. If the entity exists the properties of the object can be accessed.",
+      "line": 38
     }
   ]
 }
