@@ -1,7 +1,7 @@
 @baseUrl=http://localhost:7071/api
 @playerName=Grace
 @points=50
-POST {{baseUrl}}/UpdatePlayerScore/{{playerName}}/{{points}}
+GET {{baseUrl}}/UpdatePlayerScore/{{playerName}}
 
 ###
-GET {{baseUrl}}/UpdatePlayerScore/{{playerName}}
+POST {{baseUrl}}/UpdatePlayerScore/{{playerName}}/{{points}}
