@@ -1,7 +1,7 @@
 {
   "$schema": "https://aka.ms/codetour-schema",
   "title": "3. Table output",
-  "nextTour": "3. CosmosDB output",
+  "nextTour": "4. CosmosDB output",
   "steps": [
     {
       "file": "tst/table_output.http",
