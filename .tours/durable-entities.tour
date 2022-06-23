@@ -46,6 +46,11 @@
       "file": "src/ServerlessPersistence/DurableEntity/UpdatePlayerScore.cs",
       "description": "### UpdatePlayerScore - ReadEntityState\r\n\r\nIf the method is a GET then the entity state is retrieved. If the entity exists the properties of the object can be accessed.",
       "line": 38
+    },
+    {
+      "file": "tst/durable-entity.http",
+      "description": "### Execute UpdatePlayerScore\n\nStart Azurite & the Function App and do the GET request to `UpdatePlayerScore/{playerName}`. \n\nDo a POST request to `UpdatePlayerScore/{playerName}/{points}`. Followed by another GET request.",
+      "line": 4
     }
   ]
 }

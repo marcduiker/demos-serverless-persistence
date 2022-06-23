@@ -30,11 +30,6 @@
     },
     {
       "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
-      "description": "### StorePlayerWithStringBlobOutput - Validate input\r\nIf `player` is null the a bad request response (HTTP 400) is sent back. ",
-      "line": 29
-    },
-    {
-      "file": "src/ServerlessPersistence/Blob/Output/StorePlayerWithStringBlobOutput.cs",
       "description": "### StorePlayerWithStringBlobOutput - Saving the blob\r\n\r\nIf the `player` is not null:  \r\n- The object is serialized. \r\n- The serialized result is assigned to the Blob output parameter. \r\n- An accepted response (HTTP 202) is returned.",
       "line": 35
     },
