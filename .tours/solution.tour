@@ -5,7 +5,7 @@
   "nextTour": "2. Blob output",
   "steps": [
     {
-      "description": "### Serverless Persistence\r\n\r\nThis repository contains the demos for my talk: Persistence in Serverless."
+      "description": "### Serverless Persistence\r\n\r\nThis repository contains the demos for my talk: Persistence in Serverless.\r\n\r\nThe functions are written in C# and the Function App project is based on .NET 6 (in-proc). Azurite is used as the local storage emulator for the Blob, Table, and Durable Entity bindings. The CosmosDB binding uses a real database in Azure.\r\n"
     },
     {
       "directory": "src/ServerlessPersistence",
