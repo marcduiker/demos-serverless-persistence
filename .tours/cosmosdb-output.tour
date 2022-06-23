@@ -14,6 +14,11 @@
       "line": 14
     },
     {
+      "file": "src/ServerlessPersistence/local.settings.json",
+      "description": "### local.settings.json\n\nThe `local.settings.json` contains the `CosmosDBConnectionGameDB` setting that points to CosmosDB.",
+      "line": 6
+    },
+    {
       "file": "src/ServerlessPersistence/CosmosDB/Output/StorePlayerReturnAttributeCosmosOutput.cs",
       "description": "### StorePlayerReturnAttributeCosmosOutput - output\r\n\r\nThe function directly returns the input.",
       "line": 21
