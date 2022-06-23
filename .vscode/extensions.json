@@ -4,6 +4,7 @@
     "ms-dotnettools.csharp",
     "Azurite.azurite",
     "ms-azuretools.vscode-cosmosdb",
-    "humao.rest-client"
+    "humao.rest-client",
+    "vsls-contrib.codetour"
   ]
 }
