@@ -14,8 +14,6 @@ namespace ServerlessPersistence.CosmosDB.Input
                 AuthorizationLevel.Function, 
                 nameof(HttpMethods.Get), 
                 Route = "GetPlayerByRegionAndIdCosmosInput/{region}/{id}")] HttpRequest request,
-            string region,
-            string id,
             [CosmosDB(
                 "gamedb", 
                 "players",
